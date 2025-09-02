@@ -2,78 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Magical Kids Learning World Design System - All colors MUST be HSL */
+/* Modern STEM Learning Platform Design System - All colors MUST be HSL */
 
 @layer base {
   :root {
-    /* Magical Sky Background */
-    --background: 220 100% 97%;
-    --foreground: 225 15% 25%;
+    /* Clean Modern Background */
+    --background: 0 0% 100%;
+    --foreground: 215 15% 20%;
 
-    /* Card Magic */
+    /* Card Design */
     --card: 0 0% 100%;
-    --card-foreground: 225 15% 25%;
+    --card-foreground: 215 15% 20%;
 
-    /* Popover Magic */
+    /* Popover Design */
     --popover: 0 0% 100%;
-    --popover-foreground: 225 15% 25%;
+    --popover-foreground: 215 15% 20%;
 
-    /* Primary Magic - Bright Blue */
-    --primary: 215 100% 55%;
+    /* Primary - Modern Blue */
+    --primary: 215 85% 55%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 215 100% 70%;
+    --primary-glow: 215 85% 70%;
 
-    /* Secondary Magic - Warm Orange */
-    --secondary: 35 100% 60%;
+    /* Secondary - Vibrant Purple */
+    --secondary: 270 75% 60%;
     --secondary-foreground: 0 0% 100%;
-    --secondary-glow: 35 100% 75%;
+    --secondary-glow: 270 75% 75%;
 
-    /* Muted Magic */
-    --muted: 220 20% 95%;
-    --muted-foreground: 225 15% 45%;
+    /* Muted */
+    --muted: 210 10% 96%;
+    --muted-foreground: 215 15% 50%;
 
-    /* Accent Magic - Purple */
-    --accent: 280 100% 65%;
+    /* Accent - Energetic Orange */
+    --accent: 25 95% 60%;
     --accent-foreground: 0 0% 100%;
-    --accent-glow: 280 100% 80%;
+    --accent-glow: 25 95% 75%;
 
-    /* Success Magic - Green */
-    --success: 140 100% 45%;
+    /* Success - Fresh Green */
+    --success: 140 70% 50%;
     --success-foreground: 0 0% 100%;
-    --success-glow: 140 100% 65%;
+    --success-glow: 140 70% 65%;
 
-    /* Warning Magic - Yellow */
-    --warning: 45 100% 55%;
-    --warning-foreground: 225 15% 25%;
+    /* Warning - Bright Yellow */
+    --warning: 45 90% 60%;
+    --warning-foreground: 215 15% 20%;
 
-    /* Destructive Magic */
-    --destructive: 0 84% 60%;
+    /* Destructive */
+    --destructive: 0 75% 55%;
     --destructive-foreground: 0 0% 100%;
 
     /* UI Elements */
-    --border: 220 20% 90%;
-    --input: 220 20% 95%;
-    --ring: 215 100% 55%;
+    --border: 210 15% 85%;
+    --input: 210 10% 96%;
+    --ring: 215 85% 55%;
 
-    /* Learning Area Colors */
-    --math-land: 195 100% 55%;
-    --math-land-glow: 195 100% 70%;
-    --story-forest: 140 100% 45%;
-    --story-forest-glow: 140 100% 65%;
-    --puzzle-castle: 280 100% 65%;
-    --puzzle-castle-glow: 280 100% 80%;
-    --science-lab: 35 100% 60%;
-    --science-lab-glow: 35 100% 75%;
+    /* Subject Area Colors */
+    --math-color: 215 85% 55%;
+    --math-glow: 215 85% 70%;
+    --science-color: 140 70% 50%;
+    --science-glow: 140 70% 65%;
+    --language-color: 270 75% 60%;
+    --language-glow: 270 75% 75%;
+    --tech-color: 25 95% 60%;
+    --tech-glow: 25 95% 75%;
 
-    /* Magical Gradients */
-    --gradient-magic: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
-    --gradient-sky: linear-gradient(180deg, hsl(220 100% 97%), hsl(200 100% 90%));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 20% 98%));
+    /* Modern Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-bg: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 10% 98%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 10% 99%));
     
-    /* Magical Shadows */
-    --shadow-magic: 0 10px 30px -5px hsl(var(--primary) / 0.3);
-    --shadow-hover: 0 20px 40px -10px hsl(var(--primary) / 0.4);
-    --shadow-glow: 0 0 20px hsl(var(--primary-glow) / 0.6);
+    /* Modern Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(var(--primary) / 0.15);
+    --shadow-hover: 0 8px 30px -8px hsl(var(--primary) / 0.25);
+    --shadow-glow: 0 0 30px hsl(var(--primary-glow) / 0.4);
 
     /* Animations */
     --bounce-duration: 0.6s;
@@ -144,104 +144,102 @@
 
   body {
     @apply bg-background text-foreground font-sans;
-    background: var(--gradient-sky);
+    background: var(--gradient-bg);
     min-height: 100vh;
   }
 }
 
-/* Magical Animation Classes */
+/* Modern Animation Classes */
 @layer components {
-  .bounce-in {
-    @apply animate-[bounce-in_var(--bounce-duration)_ease-out];
+  .fade-in {
+    @apply animate-[fade-in_0.8s_ease-out];
   }
   
-  .wiggle {
-    @apply animate-[wiggle_var(--wiggle-duration)_ease-in-out];
+  .slide-in {
+    @apply animate-[slide-in_1s_ease-out];
   }
   
-  .magic-hover {
-    @apply transition-all duration-300 hover:scale-105 hover:shadow-[var(--shadow-hover)] hover:-translate-y-1;
+  .typing-cursor {
+    @apply animate-[blink_1s_infinite];
+  }
+  
+  .nav-hover {
+    @apply transition-all duration-200 hover:scale-110 hover:shadow-[var(--shadow-hover)] hover:-translate-y-1;
   }
   
   .glow-effect {
     @apply shadow-[var(--shadow-glow)];
   }
   
-  .card-magic {
-    @apply bg-gradient-to-br from-white to-white/90 backdrop-blur-sm border-2 border-white/50 rounded-3xl shadow-[var(--shadow-magic)];
+  .card-modern {
+    @apply bg-gradient-to-br from-white to-white/95 backdrop-blur-sm border border-border rounded-2xl shadow-[var(--shadow-soft)];
   }
   
-  .btn-magic {
-    @apply rounded-full px-8 py-4 text-lg font-bold transition-all duration-300 transform active:scale-95;
+  .btn-modern {
+    @apply rounded-2xl px-6 py-3 font-semibold transition-all duration-200 transform active:scale-95;
   }
   
-  .btn-primary-magic {
-    @apply btn-magic bg-primary text-primary-foreground hover:bg-primary/90 magic-hover glow-effect;
+  .btn-primary-modern {
+    @apply btn-modern bg-primary text-primary-foreground hover:bg-primary/90 nav-hover;
   }
   
-  .btn-secondary-magic {
-    @apply btn-magic bg-secondary text-secondary-foreground hover:bg-secondary/90 magic-hover;
+  .btn-secondary-modern {
+    @apply btn-modern bg-secondary text-secondary-foreground hover:bg-secondary/90 nav-hover;
   }
   
-  .btn-success-magic {
-    @apply btn-magic bg-success text-success-foreground hover:bg-success/90 magic-hover;
+  .btn-accent-modern {
+    @apply btn-modern bg-accent text-accent-foreground hover:bg-accent/90 nav-hover;
   }
   
-  .learning-area-math {
-    @apply bg-gradient-to-br from-[hsl(var(--math-land))] to-[hsl(var(--math-land-glow))];
+  .btn-success-modern {
+    @apply btn-modern bg-success text-success-foreground hover:bg-success/90 nav-hover;
   }
   
-  .learning-area-story {
-    @apply bg-gradient-to-br from-[hsl(var(--story-forest))] to-[hsl(var(--story-forest-glow))];
+  .subject-math {
+    @apply bg-gradient-to-br from-[hsl(var(--math-color))] to-[hsl(var(--math-glow))];
   }
   
-  .learning-area-puzzle {
-    @apply bg-gradient-to-br from-[hsl(var(--puzzle-castle))] to-[hsl(var(--puzzle-castle-glow))];
+  .subject-science {
+    @apply bg-gradient-to-br from-[hsl(var(--science-color))] to-[hsl(var(--science-glow))];
   }
   
-  .learning-area-science {
-    @apply bg-gradient-to-br from-[hsl(var(--science-lab))] to-[hsl(var(--science-lab-glow))];
+  .subject-language {
+    @apply bg-gradient-to-br from-[hsl(var(--language-color))] to-[hsl(var(--language-glow))];
+  }
+  
+  .subject-tech {
+    @apply bg-gradient-to-br from-[hsl(var(--tech-color))] to-[hsl(var(--tech-glow))];
   }
 }
 
-/* Magical Keyframes */
-@keyframes bounce-in {
+/* Modern Keyframes */
+@keyframes fade-in {
   0% {
-    transform: scale(0.3);
     opacity: 0;
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  70% {
-    transform: scale(0.9);
+    transform: translateY(30px);
   }
   100% {
-    transform: scale(1);
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@keyframes wiggle {
-  0%, 7% {
-    transform: rotateZ(0);
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
   }
-  15% {
-    transform: rotateZ(-15deg);
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
-  20% {
-    transform: rotateZ(10deg);
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
   }
-  25% {
-    transform: rotateZ(-10deg);
-  }
-  30% {
-    transform: rotateZ(6deg);
-  }
-  35% {
-    transform: rotateZ(-4deg);
-  }
-  40%, 100% {
-    transform: rotateZ(0);
+  51%, 100% {
+    opacity: 0;
   }
 }

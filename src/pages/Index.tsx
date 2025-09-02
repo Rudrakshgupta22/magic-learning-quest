@@ -1,53 +1,52 @@
-import { useState, useEffect } from "react";
-import { Calculator, Book, Puzzle, FlaskConical, Star, Trophy } from "lucide-react";
-import { MascotWelcome } from "@/components/MascotWelcome";
+import { useState } from "react";
+import { Calculator, Microscope, BookOpen, Code, Star, Trophy, Award } from "lucide-react";
+import Navigation from "@/components/Navigation";
+import TypingText from "@/components/TypingText";
 import { LearningAreaCard } from "@/components/LearningAreaCard";
-import mascotImage from "@/assets/wise-owl-mascot.png";
 
 const Index = () => {
-  const [showWelcome, setShowWelcome] = useState(true);
   const [selectedArea, setSelectedArea] = useState<string | null>(null);
 
   const learningAreas = [
     {
-      id: "math-land",
-      title: "Math Land",
-      description: "Explore magical numbers, solve puzzles, and discover the wonders of mathematics in this enchanted realm!",
+      id: "mathematics",
+      title: "Mathematics",
+      description: "Master algebra, geometry, calculus, and advanced mathematical concepts with interactive problem-solving tools.",
       icon: Calculator,
-      colorClass: "learning-area-math",
-      progress: 25,
-      starsEarned: 7,
-      totalStars: 15
+      colorClass: "subject-math",
+      progress: 65,
+      starsEarned: 28,
+      totalStars: 40
     },
     {
-      id: "story-forest",
-      title: "Story Forest", 
-      description: "Journey through tales and adventures, improve your reading skills, and create your own magical stories!",
-      icon: Book,
-      colorClass: "learning-area-story",
-      progress: 60,
-      starsEarned: 12,
-      totalStars: 20
+      id: "science",
+      title: "Science", 
+      description: "Explore physics, chemistry, biology, and earth sciences through virtual labs and experiments.",
+      icon: Microscope,
+      colorClass: "subject-science",
+      progress: 72,
+      starsEarned: 35,
+      totalStars: 45
     },
     {
-      id: "puzzle-castle",
-      title: "Puzzle Castle",
-      description: "Challenge your mind with brain teasers, logic games, and exciting puzzle adventures fit for a young knight!",
-      icon: Puzzle,
-      colorClass: "learning-area-puzzle", 
-      progress: 40,
-      starsEarned: 8,
-      totalStars: 12
+      id: "language",
+      title: "Language Arts",
+      description: "Develop reading, writing, literature analysis, and communication skills for academic success.",
+      icon: BookOpen,
+      colorClass: "subject-language", 
+      progress: 58,
+      starsEarned: 22,
+      totalStars: 35
     },
     {
-      id: "science-lab",
-      title: "Science Lab",
-      description: "Conduct amazing experiments, discover how the world works, and become a brilliant young scientist!",
-      icon: FlaskConical,
-      colorClass: "learning-area-science",
-      progress: 15,
-      starsEarned: 3,
-      totalStars: 18
+      id: "technology",
+      title: "Technology",
+      description: "Learn programming, digital literacy, robotics, and emerging technologies for the future.",
+      icon: Code,
+      colorClass: "subject-tech",
+      progress: 45,
+      starsEarned: 18,
+      totalStars: 30
     }
   ];
 
@@ -61,60 +60,57 @@ const Index = () => {
   const totalProgress = Math.round(learningAreas.reduce((sum, area) => sum + area.progress, 0) / learningAreas.length);
 
   return (
-    <div className="min-h-screen p-4 md:p-8">
-      {/* Welcome Message */}
-      {showWelcome && (
-        <MascotWelcome
-          message="Welcome to KidsLearn World! I'm Ollie the Wise Owl. Choose a magical land to start your learning adventure! ✨"
-          onClose={() => setShowWelcome(false)}
-        />
-      )}
+    <div className="min-h-screen">
+      {/* Navigation */}
+      <Navigation />
 
       {/* Header */}
-      <div className="max-w-7xl mx-auto">
-        <header className="text-center mb-8 bounce-in">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <img 
-              src={mascotImage} 
-              alt="Ollie the Wise Owl" 
-              className="w-16 h-16 wiggle"
-            />
-            <h1 className="text-4xl md:text-6xl font-bold font-playful text-foreground">
-              KidsLearn World
-            </h1>
-            <img 
-              src={mascotImage} 
-              alt="Ollie the Wise Owl" 
-              className="w-16 h-16 wiggle"
-              style={{ animationDelay: '0.5s' }}
+      <div className="max-w-6xl mx-auto px-4 md:px-8">
+        <header className="text-center mb-12">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 slide-in">
+            STEM Learning Hub
+          </h1>
+          <div className="text-xl md:text-2xl lg:text-3xl text-muted-foreground font-medium mb-8">
+            <TypingText 
+              text="Learn all the subjects of STEM with interactive content designed for rural learners"
+              delay={50}
             />
           </div>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-6 font-medium">
-            Choose your magical learning adventure!
-          </p>
           
           {/* Progress Summary */}
-          <div className="flex items-center justify-center gap-8 mb-8">
-            <div className="flex items-center gap-2 card-magic px-6 py-3">
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 mb-12 fade-in" style={{ animationDelay: '0.5s' }}>
+            <div className="flex items-center gap-3 card-modern px-6 py-4">
               <Star className="w-6 h-6 text-warning" />
-              <span className="font-bold text-lg text-foreground">{totalStars}</span>
-              <span className="text-muted-foreground">Stars Collected</span>
+              <div className="text-left">
+                <div className="font-bold text-xl text-foreground">{totalStars}</div>
+                <div className="text-sm text-muted-foreground">Stars Earned</div>
+              </div>
             </div>
-            <div className="flex items-center gap-2 card-magic px-6 py-3">
+            <div className="flex items-center gap-3 card-modern px-6 py-4">
               <Trophy className="w-6 h-6 text-secondary" />
-              <span className="font-bold text-lg text-foreground">{totalProgress}%</span>
-              <span className="text-muted-foreground">Overall Progress</span>
+              <div className="text-left">
+                <div className="font-bold text-xl text-foreground">{totalProgress}%</div>
+                <div className="text-sm text-muted-foreground">Progress</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 card-modern px-6 py-4">
+              <Award className="w-6 h-6 text-success" />
+              <div className="text-left">
+                <div className="font-bold text-xl text-foreground">{learningAreas.length}</div>
+                <div className="text-sm text-muted-foreground">Subjects</div>
+              </div>
             </div>
           </div>
         </header>
 
         {/* Learning Areas Grid */}
         <main>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {learningAreas.map((area, index) => (
               <div 
                 key={area.id}
-                style={{ animationDelay: `${index * 0.2}s` }}
+                className="fade-in"
+                style={{ animationDelay: `${0.7 + index * 0.2}s` }}
               >
                 <LearningAreaCard
                   title={area.title}
@@ -133,12 +129,13 @@ const Index = () => {
 
         {/* Footer */}
         <footer className="text-center mt-16 mb-8">
-          <div className="card-magic p-6 max-w-2xl mx-auto">
-            <h3 className="text-xl font-bold text-foreground mb-2 font-playful">
-              Keep Learning, Keep Growing! 🌟
+          <div className="card-modern p-8 max-w-3xl mx-auto fade-in" style={{ animationDelay: '1.5s' }}>
+            <h3 className="text-2xl font-bold text-foreground mb-4">
+              Empowering Rural Education Through Technology
             </h3>
-            <p className="text-muted-foreground">
-              Every adventure makes you smarter and stronger. Ollie the Owl is always here to help guide your way!
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              Designed for students in classes 6-12, our platform brings quality STEM education to every corner of India. 
+              Learn at your own pace with interactive content optimized for all devices.
             </p>
           </div>
         </footer>
