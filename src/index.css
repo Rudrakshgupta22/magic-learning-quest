@@ -2,39 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Magical Kids Learning World Design System - All colors MUST be HSL */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Magical Sky Background */
+    --background: 220 100% 97%;
+    --foreground: 225 15% 25%;
 
+    /* Card Magic */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 225 15% 25%;
 
+    /* Popover Magic */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 225 15% 25%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary Magic - Bright Blue */
+    --primary: 215 100% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 215 100% 70%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary Magic - Warm Orange */
+    --secondary: 35 100% 60%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-glow: 35 100% 75%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted Magic */
+    --muted: 220 20% 95%;
+    --muted-foreground: 225 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent Magic - Purple */
+    --accent: 280 100% 65%;
+    --accent-foreground: 0 0% 100%;
+    --accent-glow: 280 100% 80%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Success Magic - Green */
+    --success: 140 100% 45%;
+    --success-foreground: 0 0% 100%;
+    --success-glow: 140 100% 65%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Warning Magic - Yellow */
+    --warning: 45 100% 55%;
+    --warning-foreground: 225 15% 25%;
+
+    /* Destructive Magic */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* UI Elements */
+    --border: 220 20% 90%;
+    --input: 220 20% 95%;
+    --ring: 215 100% 55%;
+
+    /* Learning Area Colors */
+    --math-land: 195 100% 55%;
+    --math-land-glow: 195 100% 70%;
+    --story-forest: 140 100% 45%;
+    --story-forest-glow: 140 100% 65%;
+    --puzzle-castle: 280 100% 65%;
+    --puzzle-castle-glow: 280 100% 80%;
+    --science-lab: 35 100% 60%;
+    --science-lab-glow: 35 100% 75%;
+
+    /* Magical Gradients */
+    --gradient-magic: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-sky: linear-gradient(180deg, hsl(220 100% 97%), hsl(200 100% 90%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 20% 98%));
+    
+    /* Magical Shadows */
+    --shadow-magic: 0 10px 30px -5px hsl(var(--primary) / 0.3);
+    --shadow-hover: 0 20px 40px -10px hsl(var(--primary) / 0.4);
+    --shadow-glow: 0 0 20px hsl(var(--primary-glow) / 0.6);
+
+    /* Animations */
+    --bounce-duration: 0.6s;
+    --wiggle-duration: 0.5s;
 
     --radius: 0.5rem;
 
@@ -100,6 +143,105 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    background: var(--gradient-sky);
+    min-height: 100vh;
+  }
+}
+
+/* Magical Animation Classes */
+@layer components {
+  .bounce-in {
+    @apply animate-[bounce-in_var(--bounce-duration)_ease-out];
+  }
+  
+  .wiggle {
+    @apply animate-[wiggle_var(--wiggle-duration)_ease-in-out];
+  }
+  
+  .magic-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-[var(--shadow-hover)] hover:-translate-y-1;
+  }
+  
+  .glow-effect {
+    @apply shadow-[var(--shadow-glow)];
+  }
+  
+  .card-magic {
+    @apply bg-gradient-to-br from-white to-white/90 backdrop-blur-sm border-2 border-white/50 rounded-3xl shadow-[var(--shadow-magic)];
+  }
+  
+  .btn-magic {
+    @apply rounded-full px-8 py-4 text-lg font-bold transition-all duration-300 transform active:scale-95;
+  }
+  
+  .btn-primary-magic {
+    @apply btn-magic bg-primary text-primary-foreground hover:bg-primary/90 magic-hover glow-effect;
+  }
+  
+  .btn-secondary-magic {
+    @apply btn-magic bg-secondary text-secondary-foreground hover:bg-secondary/90 magic-hover;
+  }
+  
+  .btn-success-magic {
+    @apply btn-magic bg-success text-success-foreground hover:bg-success/90 magic-hover;
+  }
+  
+  .learning-area-math {
+    @apply bg-gradient-to-br from-[hsl(var(--math-land))] to-[hsl(var(--math-land-glow))];
+  }
+  
+  .learning-area-story {
+    @apply bg-gradient-to-br from-[hsl(var(--story-forest))] to-[hsl(var(--story-forest-glow))];
+  }
+  
+  .learning-area-puzzle {
+    @apply bg-gradient-to-br from-[hsl(var(--puzzle-castle))] to-[hsl(var(--puzzle-castle-glow))];
+  }
+  
+  .learning-area-science {
+    @apply bg-gradient-to-br from-[hsl(var(--science-lab))] to-[hsl(var(--science-lab-glow))];
+  }
+}
+
+/* Magical Keyframes */
+@keyframes bounce-in {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%, 100% {
+    transform: rotateZ(0);
   }
 }
